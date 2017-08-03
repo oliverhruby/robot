@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+p, td, div, td, th, input, a {
+    font-size: 11px;
+    color: lime;
+}
+
+body {
+    background-color: black;
+}
+
+.widget {
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+    background-color: rgba(0,256,0,0.05);
+    border: solid 1px #002200;
+}
