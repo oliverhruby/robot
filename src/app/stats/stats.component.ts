@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { TRexService } from '../services/trex.service';
-import { SpeechSynthesisService } from "../services/speech-synthesis.service";
-import { Widget } from "../widget/widget";
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
+import { Widget } from '../widget/widget';
+import { AppState } from '../appstate';
+import { Trex } from '../reducers/trex';
 
 @Component({
   selector: 'app-stats',
@@ -10,19 +12,16 @@ import { Widget } from "../widget/widget";
 })
 export class StatsComponent extends Widget implements OnInit {
 
-  public status: any;
+  trex: Observable<Trex>;
 
   constructor(
-    private tRexService: TRexService,
-    private speechSynthesis: SpeechSynthesisService
+    private store: Store<AppState>
   ) {
     super();
+    this.trex = store.select('trex');
   }
 
   ngOnInit() {
-    this.tRexService.getStatus().subscribe(data => {
-      this.status = data;
-    });
   }
 
 }

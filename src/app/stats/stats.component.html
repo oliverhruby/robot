@@ -1,3 +1,5 @@
-<div>
-{{status}}
+<div class="widget">
+  Voltage: {{ trex.voltage | async }}<br/>
+  LMcur: {{ trex.lmcur | async }}<br/>
+  RMcur: {{ trex.rmcur | async }}
 </div>

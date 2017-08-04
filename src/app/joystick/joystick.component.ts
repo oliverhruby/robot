@@ -18,23 +18,31 @@ export class JoystickComponent extends Widget implements OnInit {
   ngOnInit() {}
 
   forward() {
-    this.tRexService.forward();
+    this.tRexService.motors(30,30);
   }
 
   left() {
-    this.tRexService.left();
+    this.tRexService.motors(30,0);
   }
 
   right() {
-    this.tRexService.right();
+    this.tRexService.motors(0,30);
   }
 
   stop() {
-    this.tRexService.stop();
+    this.tRexService.motors(0,0);
   }
 
   photo() {
     this.tRexService.photo();
+  }
+
+  talk() {
+    this.tRexService.talk('hello');
+  }
+
+  status() {
+    this.tRexService.status();
   }
 
 }

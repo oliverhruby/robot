@@ -1,4 +1,4 @@
-import {Http} from '@angular/http';
+import { Http } from '@angular/http';
 import {
   Injectable
 } from '@angular/core';
@@ -11,31 +11,23 @@ export class TRexService {
   constructor(
     private http: Http
   ) {
-    this.ws = new WebSocket("ws://192.168.0.103:3000");  
+    this.ws = new WebSocket("ws://192.168.0.103:3000");
   }
 
-  getStatus() {
-    return this.http.get("http://192.168.0.103:3000/api/status");
-  }
-
-  forward() {
-    this.ws.send('forward');
-  }
-
-  left() {
-    this.ws.send('left');
-  }
-
-  right() {
-    this.ws.send('right');
-  }
-
-  stop() {
-    this.ws.send('stop');
+  motors(lmSpeed: number, rmSpeed: number) {
+    this.ws.send(JSON.stringify({ action: 'motors', lmSpeed: lmSpeed, rmSpeed: rmSpeed }));
   }
 
   photo() {
-    this.ws.send('photo');
+    this.ws.send(JSON.stringify({ action: 'photo' }));
+  }
+
+  status() {
+    this.ws.send(JSON.stringify({ action: 'status' }));
+  }
+
+  talk(text: string) {
+    this.ws.send(JSON.stringify({ action: 'talk', text: text }));
   }
 
 }
