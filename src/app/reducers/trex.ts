@@ -2,6 +2,10 @@ import { Action, State } from '@ngrx/store';
 
 export const UPDATE = 'UPDATE';
 
+export interface AppState {
+   trex: Trex;
+};
+
 export interface Trex {
     voltage: number;
     lmcur: number;

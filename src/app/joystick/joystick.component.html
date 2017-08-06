@@ -1,9 +1,17 @@
 <div class="widget">
-  <input type="button" id="btnStatus" (click)="status()" value="Status">
-  <input type="button" id="btnLeft" (click)="left()" value="Left">
-  <input type="button" id="btnRight" (click)="right()" value="Right">
-  <input type="button" id="btnForward" (click)="forward()" value="Forward">
-  <input type="button" id="btnStop" (click)="stop()" value="Stop">
-  <input type="button" id="btnPhoto" (click)="photo()" value="Photo">
-  <input type="button" id="btnTalk" (click)="talk()" value="Talk">
+  <div>
+    <input type="button" id="btnLeft" (click)="left()" value="Left">
+    <input type="button" id="btnRight" (click)="right()" value="Right">
+    <input type="button" id="btnForward" (click)="forward()" value="Forward">
+    <input type="button" id="btnStop" (click)="stop()" value="Stop">
+  </div>
+  <div><input type="button" id="btnPhoto" (click)="photo()" value="Photo">
+    <input type="button" id="btnTalk" (click)="talk()" value="Talk">
+  </div>
+  <div class="servo">Servo 1: <input type="number"></div>
+  <div class="servo">Servo 2: <input type="number"></div>
+  <div class="servo">Servo 3: <input type="number"></div>
+  <div class="servo">Servo 4: <input type="number"></div>
+  <div class="servo">Servo 5: <input type="number"></div>
+  <div class="servo">Servo 6: <input type="number"></div>
 </div>

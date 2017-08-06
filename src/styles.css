@@ -9,6 +9,14 @@ input,
 a {
   font-size: 11px;
   color: lime;
+  font-family: sans-serif;
+}
+
+input {
+  background-color: #002200;
+  border: 1px solid lime;
+  padding: 1px;
+  margin: 1px;
 }
 
 body {
@@ -17,10 +25,11 @@ body {
 
 .widget {
   width: 300px;
-  margin: 10px;
+  margin: 5px;
   padding: 10px;
   background-color: rgba(0, 256, 0, 0.05);
   border: solid 1px #002200;
+  display: inline-block;
 }
 
 input[type=button],

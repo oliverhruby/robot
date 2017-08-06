@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { Widget } from '../widget/widget';
-import { AppState } from '../appstate';
-import { Trex } from '../reducers/trex';
+import { Trex, AppState } from '../reducers/trex';
 
 @Component({
   selector: 'app-stats',
