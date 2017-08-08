@@ -1,8 +1,8 @@
-import { Action, State } from '@ngrx/store';
+import { Action } from '@ngrx/store';
 
 export const GYROSCOPE_UPDATE = 'GYROSCOPE_UPDATE';
 
-export interface Gyroscope {
+export interface State {
     x: number;
     y: number;
     z: number;
@@ -10,10 +10,10 @@ export interface Gyroscope {
 
 export class GyroscopeAction implements Action {
     readonly type = GYROSCOPE_UPDATE;
-    constructor(public status: Gyroscope) { }
+    constructor(public status: State) { }
 }
 
-export function trexReducer(state = { voltage: 0, lmcur: 0, rmcur: 0 }, action: GyroscopeAction) {
+export function reducer(state = { x: 0, y: 0, z: 0 }, action: GyroscopeAction): State {
     switch (action.type) {
         case GYROSCOPE_UPDATE:
             return action.status

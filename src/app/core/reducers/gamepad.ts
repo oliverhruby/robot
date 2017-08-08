@@ -7,7 +7,7 @@ export const GAMEPAD_DISCONNECT = 'GAMEPAD_DISCONNECT';
 export const GAMEPAD_UPDATE_LS = 'GAMEPAD_UPDATE_LS';
 export const GAMEPAD_UPDATE_RS = 'GAMEPAD_UPDATE_RS';
 
-export interface GamepadState {
+export interface State {
   index: number;
   timestamp: number;
   connected: boolean;
@@ -16,7 +16,7 @@ export interface GamepadState {
   buttons: any;
 };
 
-export const initialState: GamepadState = {
+export const initialState: State = {
   index: null,
   timestamp: null,
   connected: null,
@@ -30,7 +30,7 @@ export class GamepadAction implements Action {
     constructor(public payload: any) { }
 }
 
-export default function (state = initialState, action: GamepadAction): GamepadState {
+export function reducer(state = initialState, action: GamepadAction): State {
   switch (action.type) {
     case GAMEPAD_BUTTON_DOWN:
       state.buttons = action.payload;

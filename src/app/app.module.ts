@@ -1,44 +1,46 @@
-// modules
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
-import { NgModule } from '@angular/core';
-import { NgxChartsModule } from 'ngx-charts';
+
 import { StoreModule } from '@ngrx/store';
-// components
-import { AppComponent } from './app.component';
-import { CameraComponent } from './camera/camera.component';
-import { CompassComponent } from './compass/compass.component';
-import { JoystickComponent } from './joystick/joystick.component';
-import { StatsComponent } from './stats/stats.component';
-// reducers
-import { trexReducer } from './reducers/trex';
-// services
-import { SpeechSynthesisService } from "./services/speech-synthesis.service";
-import { TRexService } from './services/trex.service';
-import { ChartComponent } from './chart/chart.component';
-import { SpeedGaugeComponent } from './speed-gauge/speed-gauge.component';
+// import { StoreRouterConnectingModule } from '@ngrx/router-store';
+
+import { CoreModule } from './core/core.module';
+
+// import { routes } from './routes';
+import { reducers, metaReducers } from './reducers';
+
+import { AppComponent } from './core/containers/app';
+import { environment } from '../environments/environment';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    JoystickComponent,
-    CameraComponent,
-    ChartComponent,
-    CompassComponent,
-    StatsComponent,
-    SpeedGaugeComponent
-  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpModule,
-    NgxChartsModule,
-    StoreModule.forRoot(trexReducer)
-  ],
-  providers: [
-    SpeechSynthesisService,
-    TRexService
+
+    // RouterModule.forRoot(routes, { useHash: true }),
+
+     /**
+     * StoreModule.forRoot is imported once in the root module, accepting a reducer
+     * function or object map of reducer functions. If passed an object of
+     * reducers, combineReducers will be run creating your application
+     * meta-reducer. This returns all providers for an @ngrx/store
+     * based application.
+     */
+    StoreModule.forRoot(reducers, { metaReducers }),
+
+     /**
+     * @ngrx/router-store keeps router state up-to-date in the store.
+     */
+    // StoreRouterConnectingModule,
+
+    /**
+     * Custom module for the core application logic
+     */
+    CoreModule.forRoot(),
   ],
   bootstrap: [AppComponent]
 })

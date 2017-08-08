@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Widget } from "../widget/widget";
+import { Widget } from '../../widget/widget';
 
 @Component({
   selector: 'app-camera',
-  templateUrl: './camera.component.html',
-  styleUrls: ['./camera.component.css']
+  templateUrl: './camera.html',
+  styleUrls: ['./camera.css']
 })
 export class CameraComponent extends Widget implements OnInit {
 

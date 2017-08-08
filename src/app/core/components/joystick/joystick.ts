@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { TRexService } from "../services/trex.service";
-import { Widget } from "../widget/widget";
+import { TRexService } from '../../services/trex';
+import { Widget } from '../../widget/widget';
 
 @Component({
   selector: 'app-joystick',
-  templateUrl: './joystick.component.html',
-  styleUrls: ['./joystick.component.css']
+  templateUrl: './joystick.html',
+  styleUrls: ['./joystick.css']
 })
 export class JoystickComponent extends Widget implements OnInit {
 

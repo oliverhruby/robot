@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-import { Widget } from '../widget/widget';
-import { Trex, AppState } from '../reducers/trex';
+import  * as fromRoot from '../../../reducers';
+import { Widget } from '../../widget/widget';
 
 @Component({
   selector: 'app-stats',
-  templateUrl: './stats.component.html',
-  styleUrls: ['./stats.component.css']
+  templateUrl: './stats.html',
+  styleUrls: ['./stats.css']
 })
 export class StatsComponent extends Widget implements OnInit {
 
-  trex: Observable<Trex>;
+  trex: Observable<any>; //TODO: typed!
 
   constructor(
-    private store: Store<AppState>
+    private store: Store<fromRoot.State>
   ) {
     super();
-    this.trex = store.select('trex');
+    this.trex = this.store.select(fromRoot.getTrexState);
   }
 
   ngOnInit() {
