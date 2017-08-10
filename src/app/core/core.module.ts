@@ -5,6 +5,7 @@ import { NgxChartsModule } from 'ngx-charts';
 
 import { AppComponent } from './containers/app';
 
+import { BatteryComponent } from './components/battery/battery';
 import { CameraComponent } from './components/camera/camera';
 import { ChartComponent } from './components/chart/chart';
 import { CompassComponent } from './components/compass/compass';
@@ -20,6 +21,7 @@ import { WebSocketService } from './services/websocket';
 
 export const COMPONENTS = [
   AppComponent,
+  BatteryComponent,
   CameraComponent,
   ChartComponent,
   CompassComponent,
