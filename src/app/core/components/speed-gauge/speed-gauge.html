@@ -1,2 +1,15 @@
 <div class="widget">
+    <ngx-charts-gauge
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="data"
+      [min]="0"
+      [max]="100"
+      [angleSpan]="240"
+      [startAngle]="-120"
+      [units]="'%'"
+      [bigSegments]="0"
+      [smallSegments]="0"
+      (select)="onSelect($event)">
+    </ngx-charts-gauge>
 </div>

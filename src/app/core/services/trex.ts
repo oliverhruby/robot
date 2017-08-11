@@ -17,8 +17,7 @@ export class TRexService {
     let me = this;
     this.ws.onmessage = function (event) {
       let data = JSON.parse(event.data);
-      me.store.dispatch(new fromTrex.Update({ voltage: data.voltage, lmcur: data.lmCurrent, rmcur: data.rmCurrent}));
-      console.log(event.data);
+      me.store.dispatch(new fromTrex.Update(data));
     };
   }
 

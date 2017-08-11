@@ -15,6 +15,7 @@ import { environment } from '../../environments/environment';
 
 import * as fromGamepad from '../core/reducers/gamepad';
 import * as fromGyroscope from '../core/reducers/gyroscope';
+import * as fromJoystick from '../core/reducers/joystick';
 import * as fromTrex from '../core/reducers/trex';
 
 /**
@@ -24,6 +25,7 @@ import * as fromTrex from '../core/reducers/trex';
 export interface State {
   gamepad: fromGamepad.State;
   gyroscope: fromGyroscope.State;
+  joystick: fromJoystick.State;
   trex: fromTrex.State;
 }
 
@@ -35,6 +37,7 @@ export interface State {
 export const reducers: ActionReducerMap<State> = {
   gamepad: fromGamepad.reducer,
   gyroscope: fromGyroscope.reducer,
+  joystick: fromJoystick.reducer,
   trex: fromTrex.reducer
 };
 
@@ -62,5 +65,6 @@ export const metaReducers: ActionReducer<any, any>[] = !environment.production
  */
 export const getGamepadState = createFeatureSelector<fromGamepad.State>('gamepad');
 export const getGyroscopeState = createFeatureSelector<fromGyroscope.State>('gyroscope');
+export const getJoystickState = createFeatureSelector<fromJoystick.State>('joystick');
 export const getTrexState = createFeatureSelector<fromTrex.State>('trex');
 

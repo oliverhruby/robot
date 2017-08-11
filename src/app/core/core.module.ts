@@ -10,6 +10,7 @@ import { CameraComponent } from './components/camera/camera';
 import { ChartComponent } from './components/chart/chart';
 import { CompassComponent } from './components/compass/compass';
 import { JoystickComponent } from './components/joystick/joystick';
+import { SceneComponent } from './components/scene/scene';
 import { SpeedGaugeComponent } from './components/speed-gauge/speed-gauge';
 import { StatsComponent } from './components/stats/stats';
 import { StateComponent } from './components/state/state';
@@ -26,6 +27,7 @@ export const COMPONENTS = [
   ChartComponent,
   CompassComponent,
   JoystickComponent,
+  SceneComponent,
   SpeedGaugeComponent,
   StateComponent,
   StatsComponent

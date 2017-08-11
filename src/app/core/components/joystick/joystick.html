@@ -16,4 +16,8 @@
   <div class="servo">Servo 4: <input type="number"></div>
   <div class="servo">Servo 5: <input type="number"></div>
   <div class="servo">Servo 6: <input type="number"></div>
+  <svg #joy style="width:200px;height:200px;border:1px solid lime" (click)="click">
+    <circle [attr.cx]="(state | async).x*100+100" [attr.cy]="-(state | async).y*100+100" r="5" stroke="lime" stroke-width="3"
+      fill="none" />
+  </svg>
 </div>

@@ -8,9 +8,20 @@ import { Widget } from "../../widget/widget";
 })
 export class SpeedGaugeComponent extends Widget implements OnInit {
 
+  view: any[] = [300, 300];
+  data: any = [
+    {
+      "name": "Battery",
+      "value": 30
+    }
+  ];
+  colorScheme = {
+    domain: ['lime']
+  };
+
   constructor() {
     super();
-   }
+  }
 
   ngOnInit() {
   }
