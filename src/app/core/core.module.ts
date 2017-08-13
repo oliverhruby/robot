@@ -16,9 +16,10 @@ import { StatsComponent } from './components/stats/stats';
 import { StateComponent } from './components/state/state';
 
 // import { GyroscopeService } from './services/gyroscope';
-import { SpeechSynthesisService } from './services/speech-synthesis';
-import { TRexService } from './services/trex';
-import { WebSocketService } from './services/websocket';
+import { GamepadService } from './services/gamepad.service';
+import { SpeechSynthesisService } from './services/speech-synthesis.service';
+import { TRexService } from './services/trex.service';
+import { WebSocketService } from './services/websocket.service';
 
 export const COMPONENTS = [
   AppComponent,
