@@ -17,7 +17,7 @@ export class StatsComponent extends Widget implements OnInit {
     private store: Store<fromRoot.State>
   ) {
     super();
-    this.trex = this.store.select(fromRoot.getTrexState);
+    this.trex = this.store.select(fromRoot.getTrexStatusState);
   }
 
   ngOnInit() {

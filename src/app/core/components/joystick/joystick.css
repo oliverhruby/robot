@@ -1,28 +1,21 @@
  .container {
    overflow: hidden;
-   padding: 5px;
-   background: #272727;
+   padding: 2px;
    display: inline-block;
-   margin: 4px;
+   margin: 2px;
  }
 
- .info.bpm {
-   font-size: 2em;
-   border: 1px solid #555555;
-   width: 141px;
-   margin-top: 22px;
-   box-shadow: inset 0px 0px 11px rgba(0, 0, 0, 1);
-   background: #c3dac9;
+ .info {
+   width: 30px;
    text-align: center;
-   font-family: monospace;
-   border-radius: 7px;
-   color: #333333;
+   background: black;
+   border: 1px solid #002200;
  }
 
  knob {
    background-size: contain;
-   width: 60px;
-   height: 60px;
+   width: 30px;
+   height: 30px;
    display: block;
  }
 

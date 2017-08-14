@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 import * as fromRoot from '../../../reducers';
 import * as fromJoystick from '../../reducers/joystick';
+import * as fromTrexCommand from '../../reducers/trex-command';
 
 @Component({
   selector: 'app-joystick',
@@ -52,6 +53,10 @@ export class JoystickComponent extends Widget implements OnInit {
     this.tRexService.status();
   }
 
+  servo(index, value) {
+    this.store.dispatch(new fromTrexCommand.UpdateServos(JSON.parse("{\"servo" + index + "\":" + value + "}")));
+  }
+
   @ViewChild('joy')
   joy: ElementRef;
 
@@ -65,8 +70,12 @@ export class JoystickComponent extends Widget implements OnInit {
       new fromJoystick.Update({ x: data.offsetX / 100 - 1, y: 1 - data.offsetY / 100 })
     ));
 
-    mouseMove$.subscribe(data => this.store.dispatch(
-      new fromJoystick.Update({ x: data.offsetX / 100 - 1, y: 1 - data.offsetY / 100 })
+    // mouseMove$.subscribe(data => this.store.dispatch(
+    //   new fromJoystick.Update({ x: data.offsetX / 100 - 1, y: 1 - data.offsetY / 100 })
+    // ));
+
+    mouseUp$.subscribe(data => this.store.dispatch(
+      new fromJoystick.Update({ x: 0, y: 0 })
     ));
   }
 }

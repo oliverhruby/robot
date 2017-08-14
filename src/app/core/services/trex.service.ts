@@ -1,7 +1,8 @@
 import { Http } from '@angular/http';
 import { Store } from '@ngrx/store';
 import * as fromRoot from '../../reducers';
-import * as fromTrex from '../../core/reducers/trex';
+import * as fromTrexCommand from '../../core/reducers/trex-command';
+import * as fromTrexStatus from '../../core/reducers/trex-status';
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -17,11 +18,15 @@ export class TRexService {
     let me = this;
     this.ws.onmessage = function (event) {
       let data = JSON.parse(event.data);
-      me.store.dispatch(new fromTrex.Update(data));
+      me.store.dispatch(new fromTrexStatus.Update(data));
     };
   }
 
   motors(lmSpeed: number, rmSpeed: number) {
+    this.store.dispatch(new fromTrexCommand.UpdateMotors({
+      rmSpeed: rmSpeed,
+      lmSpeed: lmSpeed
+    }));
     this.ws.send(JSON.stringify({ action: 'motors', lmSpeed: lmSpeed, rmSpeed: rmSpeed }));
   }
 

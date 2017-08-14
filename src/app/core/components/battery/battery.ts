@@ -22,7 +22,7 @@ export class BatteryComponent extends Widget {
     private store: Store<fromRoot.State>
   ) {
     super();
-    this.store.select(fromRoot.getTrexState).subscribe(data => this.voltage = data.voltage);
+    this.store.select(fromRoot.getTrexStatusState).subscribe(data => this.voltage = data.voltage);
   }
 
 }

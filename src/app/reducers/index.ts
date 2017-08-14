@@ -16,7 +16,8 @@ import { environment } from '../../environments/environment';
 import * as fromGamepad from '../core/reducers/gamepad';
 import * as fromGyroscope from '../core/reducers/gyroscope';
 import * as fromJoystick from '../core/reducers/joystick';
-import * as fromTrex from '../core/reducers/trex';
+import * as fromTrexCommand  from '../core/reducers/trex-command';
+import * as fromTrexStatus from '../core/reducers/trex-status';
 
 /**
  * As mentioned, we treat each reducer like a table in a database. This means
@@ -26,7 +27,8 @@ export interface State {
   gamepad: fromGamepad.State;
   gyroscope: fromGyroscope.State;
   joystick: fromJoystick.State;
-  trex: fromTrex.State;
+  trexCommand: fromTrexCommand.State;
+  trexStatus: fromTrexStatus.State;
 }
 
 /**
@@ -38,7 +40,8 @@ export const reducers: ActionReducerMap<State> = {
   gamepad: fromGamepad.reducer,
   gyroscope: fromGyroscope.reducer,
   joystick: fromJoystick.reducer,
-  trex: fromTrex.reducer
+  trexCommand: fromTrexCommand.reducer,
+  trexStatus: fromTrexStatus.reducer
 };
 
 // console.log all actions
@@ -66,5 +69,6 @@ export const metaReducers: ActionReducer<any, any>[] = !environment.production
 export const getGamepadState = createFeatureSelector<fromGamepad.State>('gamepad');
 export const getGyroscopeState = createFeatureSelector<fromGyroscope.State>('gyroscope');
 export const getJoystickState = createFeatureSelector<fromJoystick.State>('joystick');
-export const getTrexState = createFeatureSelector<fromTrex.State>('trex');
+export const getTrexCommandState = createFeatureSelector<fromTrexCommand.State>('trexCommand');
+export const getTrexStatusState = createFeatureSelector<fromTrexStatus.State>('trexStatus');
 
