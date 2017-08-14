@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { KnobModule } from 'ng2-knob';
 import { NgxChartsModule } from 'ngx-charts';
 
 import { AppComponent } from './containers/app';
@@ -37,6 +37,7 @@ export const COMPONENTS = [
 @NgModule({
   imports: [
     CommonModule,
+    KnobModule,
     NgxChartsModule
   ],
   declarations: COMPONENTS,

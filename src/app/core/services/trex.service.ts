@@ -13,7 +13,7 @@ export class TRexService {
     private store: Store<fromRoot.State>,
     private http: Http
   ) {
-    this.ws = new WebSocket("ws://rpi2:3000");
+    this.ws = new WebSocket("ws://192.168.0.109:3000");
     let me = this;
     this.ws.onmessage = function (event) {
       let data = JSON.parse(event.data);

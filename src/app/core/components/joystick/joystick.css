@@ -1,3 +1,37 @@
-div.servo > input {
-    width: 50px;
-}
+ .container {
+   overflow: hidden;
+   padding: 5px;
+   background: #272727;
+   display: inline-block;
+   margin: 4px;
+ }
+
+ .info.bpm {
+   font-size: 2em;
+   border: 1px solid #555555;
+   width: 141px;
+   margin-top: 22px;
+   box-shadow: inset 0px 0px 11px rgba(0, 0, 0, 1);
+   background: #c3dac9;
+   text-align: center;
+   font-family: monospace;
+   border-radius: 7px;
+   color: #333333;
+ }
+
+ knob {
+   background-size: contain;
+   width: 60px;
+   height: 60px;
+   display: block;
+ }
+
+ knob.skin1 {
+   background: url('../../../../assets/knob_back.svg');
+   background-size: contain;
+ }
+
+ knob.skin1 /deep/ .knob {
+   background: url('../../../../assets/knob_front.svg');
+   background-size: contain;
+ }
