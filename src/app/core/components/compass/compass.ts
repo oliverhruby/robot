@@ -20,8 +20,7 @@ export class CompassComponent extends Widget {
     private store: Store<fromRoot.State>
   ) {
     super();
-    this.heading = 20;
-    //this.heading = store.select<fromRoot.State>(fromRoot.getGyroscopeState);
+    this.store.select(fromRoot.getGyroscopeState).subscribe(data => this.heading = data.x);
   }
 
 }

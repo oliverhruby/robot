@@ -21,6 +21,7 @@ export class BatteryComponent extends Widget {
     private store: Store<fromRoot.State>
   ) {
     super();
+    this.title = 'Battery Status';
     this.store.select(fromRoot.getTrexStatusState).subscribe(data => this.voltage = data.voltage);
   }
 

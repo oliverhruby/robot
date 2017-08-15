@@ -9,11 +9,11 @@ import * as joystickReducers from '../../reducers/joystick';
 import * as trex from '../../actions/trex';
 
 @Component({
-  selector: 'app-joystick',
-  templateUrl: './joystick.html',
-  styleUrls: ['./joystick.css']
+  selector: 'app-trex-command',
+  templateUrl: './trex-command.html',
+  styleUrls: ['./trex-command.css']
 })
-export class JoystickComponent extends Widget implements OnInit {
+export class TRexCommandComponent extends Widget implements OnInit {
   pressed: boolean = false;
   state: Observable<joystickReducers.State>;
 
@@ -22,23 +22,32 @@ export class JoystickComponent extends Widget implements OnInit {
     private tRexService: TRexService
   ) {
     super();
+    this.title = 'TRex Commands';
     let me = this;
     this.state = this.store.select<joystickReducers.State>(fromRoot.getJoystickState);
   }
 
   forward() {
+    this.store.dispatch(new trex.UpdateMotors({ lmSpeed: 30, rmSpeed: 30}));
+    // TODO: move this to an effect
     this.tRexService.motors(30, 30);
   }
 
   left() {
+    this.store.dispatch(new trex.UpdateMotors({ lmSpeed: 30, rmSpeed: 0}));
+    // TODO: move this to an effect
     this.tRexService.motors(30, 0);
   }
 
   right() {
+    this.store.dispatch(new trex.UpdateMotors({ lmSpeed: 0, rmSpeed: 30}));
+    // TODO: move this to an effect
     this.tRexService.motors(0, 30);
   }
 
   stop() {
+    this.store.dispatch(new trex.UpdateMotors({ lmSpeed: 0, rmSpeed: 0}));
+    // TODO: move this to an effect
     this.tRexService.motors(0, 0);
   }
 

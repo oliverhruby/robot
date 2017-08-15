@@ -9,11 +9,11 @@ import { BatteryComponent } from './components/battery/battery';
 import { CameraComponent } from './components/camera/camera';
 import { ChartComponent } from './components/chart/chart';
 import { CompassComponent } from './components/compass/compass';
-import { JoystickComponent } from './components/joystick/joystick';
 import { SceneComponent } from './components/scene/scene';
 import { SpeedGaugeComponent } from './components/speed-gauge/speed-gauge';
-import { StatsComponent } from './components/stats/stats';
 import { StateComponent } from './components/state/state';
+import { TRexStatusComponent } from './components/trex-status/trex-status';
+import { TRexCommandComponent } from './components/trex-command/trex-command';
 
 // import { GyroscopeService } from './services/gyroscope';
 import { GamepadService } from './services/gamepad.service';
@@ -27,11 +27,11 @@ export const COMPONENTS = [
   CameraComponent,
   ChartComponent,
   CompassComponent,
-  JoystickComponent,
+  TRexCommandComponent,
   SceneComponent,
   SpeedGaugeComponent,
   StateComponent,
-  StatsComponent
+  TRexStatusComponent
 ];
 
 @NgModule({

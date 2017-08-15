@@ -17,6 +17,7 @@ export class SceneComponent extends Widget implements OnInit {
     private store: Store<fromRoot.State>
   ) {
     super();
+    this.title = '3D Scene';
   }
 
   ngOnInit() {

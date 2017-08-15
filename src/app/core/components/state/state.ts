@@ -20,6 +20,7 @@ export class StateComponent extends Widget {
 
   constructor(private store: Store<any>) {
     super();
+    this.title = 'Application State';
     store.subscribe((data) => this.state = JSON.stringify(data, undefined, 2));
   }
 

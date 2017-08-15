@@ -6,11 +6,11 @@ import  * as fromTrexStatus from '../../reducers/trex-status';
 import { Widget } from '../../widget/widget';
 
 @Component({
-  selector: 'app-stats',
-  templateUrl: './stats.html',
-  styleUrls: ['./stats.css']
+  selector: 'app-trex-status',
+  templateUrl: './trex-status.html',
+  styleUrls: ['./trex-status.css']
 })
-export class StatsComponent extends Widget implements OnInit {
+export class TRexStatusComponent extends Widget implements OnInit {
 
   status: Observable<fromTrexStatus.State>;
 
@@ -18,6 +18,7 @@ export class StatsComponent extends Widget implements OnInit {
     private store: Store<fromRoot.State>
   ) {
     super();
+    this.title = "TRex Status";
     this.status = this.store.select(fromRoot.getTrexStatusState);
   }
 

@@ -10,6 +10,7 @@ export class CameraComponent extends Widget implements OnInit {
 
   constructor() {
     super();
+    this.title = 'Robot Camera';
    }
 
   ngOnInit() {

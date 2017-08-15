@@ -1,11 +1,17 @@
 import { Component } from '@angular/core';
+import { Widget } from '../../widget/widget';
 
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.html',
   styleUrls: ['./chart.css']
 })
-export class ChartComponent {
+export class ChartComponent extends Widget {
+
+  constructor() {
+    super();
+    this.title = 'Chart Example';
+  }
 
   single = [
     {
@@ -84,9 +90,6 @@ export class ChartComponent {
 
   // line, area
   autoScale = false;
-
-  constructor() {
-  }
 
   onSelect(event) {
     console.log(event);
