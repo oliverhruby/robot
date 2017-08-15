@@ -1,8 +1,5 @@
 import { Action } from '@ngrx/store';
-import { TrexCommand } from "../models/trex-command";
-
-export const TREX_UPDATE_MOTORS = 'TREX_UPDATE_MOTORS';
-export const TREX_UPDATE_SERVOS = 'TREX_UPDATE_SERVOS';
+import * as trex from '../actions/trex';
 
 export interface State {
     rmSpeed: number;
@@ -26,25 +23,12 @@ const initialState = {
     servo6: 0
 }
 
-export class UpdateMotors implements Action {
-    readonly type = TREX_UPDATE_MOTORS;
-    constructor(public command: any) { }
-}
-
-export class UpdateServos implements Action {
-    readonly type = TREX_UPDATE_SERVOS;
-    constructor(public command: any) { }
-}
-
-export type TrexCommandAction
-    = UpdateMotors | UpdateServos;
-
-export function reducer(state = initialState, action: TrexCommandAction): State {
+export function reducer(state = initialState, action: trex.TRexActions): State {
     switch (action.type) {
-        case TREX_UPDATE_MOTORS:
-            return Object.assign({}, state, action.command);
-        case TREX_UPDATE_SERVOS:
-            return Object.assign({}, state, action.command);
+        case trex.TREX_UPDATE_MOTORS:
+            return Object.assign({}, state, action.payload);
+        case trex.TREX_UPDATE_SERVOS:
+            return Object.assign({}, state, action.payload);
 
         default:
             return state;

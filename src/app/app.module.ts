@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
-
+import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 // import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
@@ -37,6 +37,14 @@ import { environment } from '../environments/environment';
      */
     // StoreRouterConnectingModule,
 
+    /**
+     * EffectsModule.forRoot() is imported once in the root module and
+     * sets up the effects class to be initialized immediately when the
+     * application starts.
+     *
+     * See: https://github.com/ngrx/platform/blob/master/docs/effects/api.md#forroot
+     */
+    EffectsModule.forRoot([]),
     /**
      * Custom module for the core application logic
      */

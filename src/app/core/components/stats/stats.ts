@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import  * as fromRoot from '../../../reducers';
+import  * as fromTrexStatus from '../../reducers/trex-status';
 import { Widget } from '../../widget/widget';
 
 @Component({
@@ -11,13 +12,13 @@ import { Widget } from '../../widget/widget';
 })
 export class StatsComponent extends Widget implements OnInit {
 
-  trex: Observable<any>; //TODO: typed!
+  status: Observable<fromTrexStatus.State>;
 
   constructor(
     private store: Store<fromRoot.State>
   ) {
     super();
-    this.trex = this.store.select(fromRoot.getTrexStatusState);
+    this.status = this.store.select(fromRoot.getTrexStatusState);
   }
 
   ngOnInit() {

@@ -4,8 +4,9 @@ import { Widget } from '../../widget/widget';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 import * as fromRoot from '../../../reducers';
-import * as fromJoystick from '../../reducers/joystick';
-import * as fromTrexCommand from '../../reducers/trex-command';
+import * as joystick from '../../actions/joystick';
+import * as joystickReducers from '../../reducers/joystick';
+import * as trex from '../../actions/trex';
 
 @Component({
   selector: 'app-joystick',
@@ -14,7 +15,7 @@ import * as fromTrexCommand from '../../reducers/trex-command';
 })
 export class JoystickComponent extends Widget implements OnInit {
   pressed: boolean = false;
-  state: Observable<fromJoystick.State>;
+  state: Observable<joystickReducers.State>;
 
   constructor(
     private store: Store<fromRoot.State>,
@@ -22,7 +23,7 @@ export class JoystickComponent extends Widget implements OnInit {
   ) {
     super();
     let me = this;
-    this.state = this.store.select<fromJoystick.State>(fromRoot.getJoystickState);
+    this.state = this.store.select<joystickReducers.State>(fromRoot.getJoystickState);
   }
 
   forward() {
@@ -54,7 +55,7 @@ export class JoystickComponent extends Widget implements OnInit {
   }
 
   servo(index, value) {
-    this.store.dispatch(new fromTrexCommand.UpdateServos(JSON.parse("{\"servo" + index + "\":" + value + "}")));
+    this.store.dispatch(new trex.UpdateServos(JSON.parse("{\"servo" + index + "\":" + value + "}")));
   }
 
   @ViewChild('joy')
@@ -67,7 +68,7 @@ export class JoystickComponent extends Widget implements OnInit {
     const mouseUp$ = Observable.fromEvent<MouseEvent>(joy, 'mouseup');
 
     mouseDown$.subscribe(data => this.store.dispatch(
-      new fromJoystick.Update({ x: data.offsetX / 100 - 1, y: 1 - data.offsetY / 100 })
+      new joystick.Update({ x: data.offsetX / 100 - 1, y: 1 - data.offsetY / 100 })
     ));
 
     // mouseMove$.subscribe(data => this.store.dispatch(
@@ -75,7 +76,7 @@ export class JoystickComponent extends Widget implements OnInit {
     // ));
 
     mouseUp$.subscribe(data => this.store.dispatch(
-      new fromJoystick.Update({ x: 0, y: 0 })
+      new joystick.Update({ x: 0, y: 0 })
     ));
   }
 }

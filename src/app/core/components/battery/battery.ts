@@ -3,7 +3,6 @@ import { Subscription } from 'rxjs';
 import { Observable } from 'rxjs/Rx';
 import { Store } from '@ngrx/store';
 import { Widget } from '../../widget/widget';
-import * as fromTrex from '../../reducers/trex';
 import * as fromRoot from '../../../reducers';
 
 /**

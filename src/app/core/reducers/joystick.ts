@@ -1,6 +1,5 @@
 import { Action, ActionReducer } from '@ngrx/store';
-
-export const UPDATE = 'JOYSTICK_UPDATE';
+import * as joystick from '../actions/joystick';
 
 export interface State {
   x: number;
@@ -12,17 +11,9 @@ export const initialState: State = {
   y: 0
 };
 
-export class Update implements Action {
-    readonly type = UPDATE;
-    constructor(public payload: State) { }
-}
-
-export type JoystickAction
-    = Update;
-
-export function reducer(state = initialState, action: JoystickAction): State {
+export function reducer(state = initialState, action: joystick.JoystickActions): State {
   switch (action.type) {
-    case UPDATE:
+    case joystick.JOYSTICK_UPDATE:
       state.x = action.payload.x;
       state.y = action.payload.y;
       return state;
